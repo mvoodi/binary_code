@@ -7,17 +7,10 @@ int main(){
     int intPart[8];
     int decPart[numbersAfterPoint];
 
-    printf("Введите количество чисел после запятой:")
+    printf("Введите количество чисел после запятой:");
     scanf("%d", &numbersAfterPoint);
-    printf("Введите число: ")
+    printf("Введите число: ");
     scanf("%lf", &num);
-    int intValue = (int)num;
-    if((num - intValue) == 0 && num > 0){
-        while(num != 0){
-            
-        }
-    }
-    else if()
 
 
 
@@ -27,9 +20,5 @@ int main(){
 
 
 
-
-}
-
-void PositiveInteger(int a, ){
 
 }
