@@ -14,13 +14,23 @@ static void PositiveInt(int num, int array[]) {
     printf("\n");
 }
 
-static void NegativeInt(){
+static void NegativeInt(int num, int array[]){
     int num1 = num * (-1);
     int i = 0;
     while (num1 != 0)
     {
-        array[i] = num1 % 2;
         num1 = num1 / 2;
+        i = i + 1;
+    }
+    int b = 7 - i;
+    i = 0;
+    while (i < b){
+        array[i] = 0;
+        i = i + 1;
+    }
+    while(num != 0){
+        array[i] = num % 2;
+        num = num / 2;
         i = i + 1;
     }
 
@@ -45,7 +55,7 @@ static void NegativeInt(){
         }
     }
 
-    for (int a = i - 1; a >= 0; a--) {
+    for (int a = 0; a < 8; a++) {
         printf("%d ", array[a]);
     }
     printf("\n");
@@ -53,7 +63,7 @@ static void NegativeInt(){
 
 int main(){
     int numbersAfterPoint = 4;
-    double num = 10;
+    double num = -10;
     int intValue = (int)num;
     int intPart[8];
     int decPart[1];
@@ -62,7 +72,7 @@ int main(){
 
     }
     else if(num - (double)intValue == 0.0 && num < 0){
-
+        NegativeInt(num, intPart);
     }
     // else if(num - (double)intValue > 0.0 && num > 0){
 
