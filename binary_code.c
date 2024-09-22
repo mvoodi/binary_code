@@ -64,14 +64,14 @@ static void NegativeInt(int num, int array[]){
 static void DoubleNum (double num, int numAfterPoint, int array[]){
     int i = 0;
     int lastAns = 0;
-    while (i < numAfterPoint && lastAns > 0){
+    while (i < numAfterPoint || lastAns == 0){
         double a = num * 2;
         array[i] = (int)a;
-        lastAns = (int)a;
+        lastAns = array[i];
         num = a - (int)a;
         i = i + 1;
     }
-    for (int b = 0; b >= i; b++) {
+    for (int b = 0; b < i; b++) {
         printf("%d ", array[b]);
     }
     printf("\n");
@@ -79,7 +79,7 @@ static void DoubleNum (double num, int numAfterPoint, int array[]){
 }
 
 int main(){
-    int numbersAfterPoint = 5;
+    int numbersAfterPoint = 4;
     double num = 7.6;
     int intValue = (int)num;
     int intPart[8];
@@ -98,9 +98,6 @@ int main(){
         DoubleNum(decPartNum, numbersAfterPoint, decPart);
 
     }
-    // else if(num - (double)intValue < 0.0 && num < 0){
-
-    // }
 
     return 0;
 
