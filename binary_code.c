@@ -1,11 +1,13 @@
 #include <stdio.h>
 
 static void PositiveInt(int num, int array[]) {
-    int num1 = num;
+    
     int i = 0;
-    while (num1 != 0) {
-        array[i] = num1 % 2;
-        num1 = num1 / 2;
+    while (num!= 0) {
+        int num1 = num;
+        
+        num = num / 2;
+        array[i] = num1 - (num * 2);
         i = i + 1;
     }
     for (int a = i - 1; a >= 0; a--) {
@@ -29,8 +31,11 @@ static void NegativeInt(int num, int array[]){
         i = i + 1;
     }
     while(num != 0){
-        array[i] = num % 2;
+        int num9 = num;
+
         num = num / 2;
+
+        array[i] = num9 - (num * 2);
         i = i + 1;
     }
 
@@ -64,7 +69,8 @@ static void NegativeInt(int num, int array[]){
 static void DoubleNum (double num, int numAfterPoint, int array[]){
     int i = 0;
     int lastAns = 0;
-    while (i < numAfterPoint || lastAns == 0){
+    int mmry = numAfterPoint * 3;
+    while (i < numAfterPoint || (i < mmry && lastAns == 0)){
         double a = num * 2;
         array[i] = (int)a;
         lastAns = array[i];
@@ -74,16 +80,19 @@ static void DoubleNum (double num, int numAfterPoint, int array[]){
     for (int b = 0; b < i; b++) {
         printf("%d ", array[b]);
     }
-    printf("\n");
     
+    if(i = mmry && lastAns == 0){
+        printf("...After that, the answer will be only 0!");
+    }
+    printf("\n");
 }
 
 int main(){
-    int numbersAfterPoint = 4;
-    double num = 7.6;
+    int numbersAfterPoint = 50;
+    double num = 8.74;
     int intValue = (int)num;
     int intPart[8];
-    int decPart[numbersAfterPoint];
+    int decPart[numbersAfterPoint*3];
     if(num - (double)intValue == 0.0 && num > 0){
         PositiveInt(num, intPart);
 
